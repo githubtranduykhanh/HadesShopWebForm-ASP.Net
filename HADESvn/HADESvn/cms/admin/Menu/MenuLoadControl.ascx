@@ -1,0 +1,2 @@
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="MenuLoadControl.ascx.cs" Inherits="HADESvn.cms.admin.Menu.MenuLoadControl" %>
+<asp:PlaceHolder ID="AdminPlaceHolder" runat="server"></asp:PlaceHolder>

@@ -1,0 +1,2 @@
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="KhachHangLoadControl.ascx.cs" Inherits="HADESvn.cms.admin.KhachHang.KhachHangLoadControl" %>
+<asp:PlaceHolder ID="AdminPlaceHolder" runat="server"></asp:PlaceHolder>

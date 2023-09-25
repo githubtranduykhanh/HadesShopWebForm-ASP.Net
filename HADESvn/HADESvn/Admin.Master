@@ -1,0 +1,230 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="HADESvn.Admin" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap&subset=vietnamese" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Admin</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/javascript">
+        function alertSweetalert2(massage, messagetype) {
+            switch (messagetype) {
+                case 'success':
+                    alertSuccess();
+                    break;
+                case 'error':
+                    alertError();
+                    break;
+                case 'deleted':
+                    alertDeleted();
+                    break;
+                case 'warning':
+                    alertWarning();
+                    break;
+                default:
+                    alertSuccess();
+            }
+            function alertSuccess() {
+                Swal.fire(
+                    'Good job!',
+                    massage,
+                    'success'
+                )
+            };
+            function alertError() {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error...',
+                    text: massage,
+                    footer: '<a href="">Why do I have this issue?</a>'
+                })
+            };
+            function alertWarning() {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Warning...',
+                    text: massage,
+                    footer: '<a href="">Why do I have this issue?</a>'
+                })
+            };
+            function alertDeleted() {
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: massage,
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        Swal.fire(
+                            'Deleted!',
+                            'Your file has been deleted.',
+                            'success'
+                        )
+                    }
+                })
+                return true;
+            };
+
+        }
+    </script>
+    <script>
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: 'btn btn-alert-confirm',
+                cancelButton: 'btn btn-alert-cance'
+            },
+            buttonsStyling: false
+        })
+    </script>
+    <link href="assets/css/adminThongKe.css" rel="stylesheet" />
+    <link href="assets/css/base.css" rel="stylesheet" />
+    <link href="assets/css/styles.css" rel="stylesheet" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <div class="main">
+            <div class="navadmin">
+                <ul>
+                    <li>
+
+                        <%if ((Boolean)Session["admin"] == false)
+                            {%>
+                        <a href="#">
+                            <span class="icon">
+                                <ion-icon name="logo-apple"></ion-icon>
+                            </span>
+                            <span class="title">BrandName</span>
+                        </a>
+
+                        <%}%>
+                        <% else
+                            { %>
+
+                        <div class="div_right-item" style="height: 70px; justify-content: normal;">
+                            <img src="/assets/img/logo_key_back.jpg" class="div_right-user-img" style="width: 70px; height: 70px;" />
+                            <span class="div_right-user-name" style="color: #fff; margin-left: 10px;"><%=infoAdmin.TenDayDu%></span>
+                        </div>
+                        <%--<ul class="div_right-user-menu">
+                                <li class="div_right-user-item">
+                                    <a href="#" class="div_right-user-item-list">Tài khoản của tôi</a>
+                                </li>
+                                <li class="div_right-user-item">
+                                    <a href="#" class="div_right-user-item-list">Địa chỉ của tôi </a>
+                                </li>
+                                <li class="div_right-user-item">
+                                    <a href="#" class="div_right-user-item-list">Đơn mua</a>
+                                </li>
+                                <li class="div_right-user-item">
+                                    <asp:LinkButton ID="btnlinkDX" runat="server" CssClass="div_right-user-item-list" Style="color: var(--text-coler) !important; font-weight: bold; padding: 10px 16px;">Đăng xuất</asp:LinkButton>
+                                </li>
+                            </ul>--%>
+
+                        <%}%>
+                    </li>
+                    <li>
+                        <a href="AdminPage.aspx?modul=ThongKe&thaotac=HienThi">
+                            <span class="icon">
+                                <ion-icon name="bar-chart-outline"></ion-icon>
+                            </span>
+                            <span class="title">Thống Kê</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="AdminPage.aspx?modul=SanPham">
+                            <span class="icon">
+                                <ion-icon name="storefront-outline"></ion-icon>
+                            </span>
+                            <span class="title">Sản Phẩm</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="AdminPage.aspx?modul=TaiKhoan">
+                            <span class="icon">
+                                <ion-icon name="person-outline"></ion-icon>
+                            </span>
+                            <span class="title">Tài Khoản</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="AdminPage.aspx?modul=TinTuc">
+                            <span class="icon">
+                                <ion-icon name="newspaper-outline"></ion-icon>
+                            </span>
+                            <span class="title">Tin Tức</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="AdminPage.aspx?modul=Menu">
+                            <span class="icon">
+                                <ion-icon name="apps-outline"></ion-icon>
+                            </span>
+                            <span class="title">Menu</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="AdminPage.aspx?modul=KhachHang">
+                            <span class="icon">
+                                <ion-icon name="people-outline"></ion-icon>
+                            </span>
+                            <span class="title">Khách Hàng</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="AdminPage.aspx?modul=SanPham&modulphu=DonHang">
+                            <span class="icon">
+                                <ion-icon name="clipboard-outline"></ion-icon>
+                            </span>
+                            <span class="title">Đơn Hàng</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <asp:LinkButton ID="btnlinkDX" runat="server" OnClick="btnlinkDX_Click">
+                             <span class="icon">
+                                <ion-icon name="exit-outline"></ion-icon>
+                            </span>
+                            <span class="title">Đăng Xuất</span>
+                        </asp:LinkButton>
+                        <%--<a href="AdminPage.aspx?modul=SanPham&modulphu=DonHang">
+                            
+                        </a>--%>
+                    </li>
+                </ul>
+                <div class="toggle"></div>
+
+            </div>
+            <div class="contents">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+    </form>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script>
+        let navadmin = document.querySelector('.navadmin');
+        let toggle = document.querySelector('.toggle');
+        let contents = document.querySelector('.contents');
+        toggle.onclick = function () {
+            navadmin.classList.toggle('active')
+            contents.classList.toggle('active')
+        }
+    </script>
+</body>
+</html>

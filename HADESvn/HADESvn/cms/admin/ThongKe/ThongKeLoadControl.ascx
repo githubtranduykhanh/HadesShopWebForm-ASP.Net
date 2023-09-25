@@ -1,0 +1,2 @@
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ThongKeLoadControl.ascx.cs" Inherits="HADESvn.cms.admin.ThongKe.ThongKeLoadControl" %>
+<asp:PlaceHolder ID="AdminPlaceHolder" runat="server"></asp:PlaceHolder>

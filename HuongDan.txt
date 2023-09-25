@@ -1,0 +1,21 @@
+B1: Vào SQL Server 2012 trở lên
+B2: Restore file WED_DA2.BAK vào databases
+B3: Lấy chuổi kết nối là Server name
+B4: Giải nén file HADESvn.rar -> mở file đã giải nén -> open file HADESvn.sln để mở dự án 
+-> vào View -> Server Explorer -> Connect to Database -> nhập Server name 
+-> dưới phần Select or enter a database name chọn table WED_DA2 -> Test Connection -> OK 
+-> llS Express (Google Chrome)
+
+User email: tranduykhanh.210101.dnc@gmail.com
+Password: 123456
+
+Admin email: admin@gmail.com
+Password: 123456
+
+
+
+Ngân hàng	NCB
+Số thẻ		9704198526191432198
+Tên chủ thẻ	NGUYEN VAN A
+Ngày phát hành	07/15
+Mật khẩu OTP	123456

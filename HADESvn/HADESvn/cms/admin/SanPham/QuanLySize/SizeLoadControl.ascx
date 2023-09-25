@@ -1,0 +1,2 @@
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SizeLoadControl.ascx.cs" Inherits="HADESvn.cms.admin.SanPham.QuanLySize.SizeLoadControl" %>
+<asp:PlaceHolder ID="AdminPlaceHolder" runat="server"></asp:PlaceHolder>

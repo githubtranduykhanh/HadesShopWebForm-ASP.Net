@@ -1,0 +1,2 @@
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ChatLieuLoadControl.ascx.cs" Inherits="HADESvn.cms.admin.SanPham.QuanLyChatLieu.ChatLieuLoadControl" %>
+<asp:PlaceHolder ID="AdminPlaceHolder" runat="server"></asp:PlaceHolder>

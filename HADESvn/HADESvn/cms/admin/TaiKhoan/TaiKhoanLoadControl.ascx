@@ -1,0 +1,2 @@
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="TaiKhoanLoadControl.ascx.cs" Inherits="HADESvn.cms.admin.TaiKhoan.TaiKhoanLoadControl" %>
+<asp:PlaceHolder ID="AdminPlaceHolder" runat="server"></asp:PlaceHolder>
